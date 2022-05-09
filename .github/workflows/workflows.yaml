@@ -6,5 +6,9 @@ jobs:
   first_job:
     runs-on: ubuntu-latest
     name: first job
-  second_job:
-    name: second job
+    steps:
+      - name: echo command
+        env:
+          MY_VAR: variable
+        run:|
+        echo MY_VAR
