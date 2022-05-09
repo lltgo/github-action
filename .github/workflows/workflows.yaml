@@ -8,7 +8,7 @@ jobs:
     name: first job
     steps:
       - name: echo command
-      - uses: actions/checkout@master
+        uses: actions/checkout@master
         env:
           MY_VAR: variable
         run: |
