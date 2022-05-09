@@ -14,3 +14,6 @@ jobs:
           MY_VAR: variable
         run: |
           echo MY_VAR
+      - name: show dir
+        run: |
+          ls /home/runner/work/github-action/github-action
