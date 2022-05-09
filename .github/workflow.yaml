@@ -1,0 +1,10 @@
+name: github-action-ci
+
+on: push
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    name: first job
+  second_job:
+    name: second job
