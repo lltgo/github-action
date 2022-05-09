@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     name: first job
     steps:
-      - name: echo command
+      - name: checkout go
         uses: actions/checkout@master
+      - name: echo command
         env:
           MY_VAR: variable
         run: |
