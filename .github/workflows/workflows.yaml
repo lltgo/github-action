@@ -3,11 +3,12 @@ name: github-action-ci
 on: push
 
 jobs:
-  first_job:
+  build:
     runs-on: ubuntu-latest
     name: first job
     steps:
       - name: echo command
+      - uses: actions/checkout@master
         env:
           MY_VAR: variable
         run: |
