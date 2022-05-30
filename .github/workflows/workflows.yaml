@@ -23,6 +23,7 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: semantic-release -d
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: semantic-release
 
 
