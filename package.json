@@ -1,5 +1,5 @@
 {
-  "name": "lulutong/github-action-release",
+  "name": "github-action-release",
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
