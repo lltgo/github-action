@@ -3,17 +3,37 @@ name: github-action-ci
 on: push
 
 jobs:
-  build:
+  autotag:
+    name: Release
     runs-on: ubuntu-latest
-    name: first job
     steps:
-      - name: checkout go
-        uses: actions/checkout@master
-      - name: echo command
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: npm ci
+      - name: Release
         env:
-          MY_VAR: variable
-        run: |
-          echo MY_VAR
-      - name: show dir
-        run: |
-          ls /home/runner/work/github-action/github-action
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
+#  build:
+#    runs-on: ubuntu-latest
+#    name: first job
+#    steps:
+#      - name: checkout go
+#        uses: actions/checkout@master
+#      - name: echo command
+#        env:
+#          MY_VAR: variable
+#        run: |
+#          echo MY_VAR
+#      - name: show dir
+#        run: |
+#          ls /home/runner/work/github-action/github-action
+#
