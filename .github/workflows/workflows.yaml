@@ -1,27 +1,25 @@
-name: release
-
+name: Release
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - '*'
 jobs:
   release:
-    needs: [ci-build]
     name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/checkout@v2
         with:
-          node-version: 12
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
       - name: Install dependencies
-        run: npm install -g semantic-release @semantic-release/github @semantic-release/release-notes-generator conventional-changelog-conventionalcommits conventional-changelog-eslint
+        run: npm ci
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: semantic-release $DRY_RUN_OPT
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
