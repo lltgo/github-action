@@ -14,6 +14,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Setup golang
         uses: WillAbides/setup-go-faster@v1.7.0
         with:
@@ -22,6 +23,8 @@ jobs:
         run: go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
       - name: Show tag
         run: git tag -l
+      - name: Show log
+        run: git log
       - name: Gen changelog
         run: git-chglog -o CHANGELOG.md
       - name: Git push
