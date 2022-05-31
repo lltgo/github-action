@@ -27,7 +27,8 @@ jobs:
       - name: Show log
         run: git log
       - name: Gen changelog
-        run: git-chglog -o CHANGELOG.md
+        run: git-chglog -o CHANGELOG.md |
+          cat CHANGELOG.md
       - name: Git push
         run: git status -s |
           git add . |
