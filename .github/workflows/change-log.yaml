@@ -14,7 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+        with:
+          fetch-depth: 0
       - name: Setup golang
         uses: WillAbides/setup-go-faster@v1.7.0
         with:
