@@ -1,5 +1,8 @@
-name: Semantic-release
-on: push
+name: Release
+on:
+  push:
+    branches:
+      - main
 jobs:
   release:
     name: Release
@@ -13,11 +16,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 'lts/*'
+      - name: Install semantic-release
+        run: npm install -g semantic-release @semantic-release/github -D
       - name: Install dependencies
         run: npm ci
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release -d
+        run: semantic-release
+
 
