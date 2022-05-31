@@ -27,6 +27,7 @@
       }
     ]
   ],
+  "preset": "angular",
   "release": {
     "branches": [
       "main",
