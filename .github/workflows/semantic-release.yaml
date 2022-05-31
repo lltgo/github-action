@@ -1,8 +1,5 @@
-name: Release
-on:
-  push:
-    branches:
-      - main
+name: Semantic-release
+on: push
 jobs:
   release:
     name: Release
