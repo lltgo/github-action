@@ -20,8 +20,8 @@ jobs:
           go-version: '1.18.1'
       - name: Install git-chglog
         run: go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
-      - name: Ls pwd
-        run: ls && pwwd
+      - name: Show tag
+        run: git tag -l
       - name: Gen changelog
         run: git-chglog -o CHANGELOG.md
       - name: Git push
