@@ -3,7 +3,7 @@ name: Changelog CI
 on:
   push:
     branches:
-      - *
+      - feature/change-log
   pull_request_target:
     branches:
       - main
