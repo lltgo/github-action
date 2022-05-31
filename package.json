@@ -27,11 +27,5 @@
       "main",
       "next"
     ]
-  },
-  "dependencies": {
-    "conventional-changelog": "^3.1.25"
-  },
-  "devDependencies": {
-    "@semantic-release/changelog": "^6.0.1"
   }
 }
